@@ -19,15 +19,15 @@ CREATE TABLE Menu_Harian (
 ) ENGINE=InnoDB;
 
 CREATE TABLE Porsi_Menu (
-    ID_Menu VARCHAR(50),
-    ID_Kelompok VARCHAR(50),
+    ID_Siswa VARCHAR(50),       
+    ID_Menu VARCHAR(50),       
     Takaran_Porsi VARCHAR(50) NOT NULL,
     Energi_Kkal DECIMAL(6,2),
     Protein_G DECIMAL(5,2),
     Lemak_G DECIMAL(5,2),
     Karbohidrat_G DECIMAL(5,2),
     Persentase_Pemenuhan DECIMAL(5,2),
-    PRIMARY KEY (ID_Menu, ID_Kelompok),
-    FOREIGN KEY (ID_Menu) REFERENCES Menu_Harian(ID_Menu) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (ID_Kelompok) REFERENCES Kelompok_Sasaran(ID_Kelompok) ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY (ID_Siswa, ID_Menu), 
+    FOREIGN KEY (ID_Siswa) REFERENCES Siswa(ID_Siswa) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (ID_Menu) REFERENCES Menu_Harian(ID_Menu) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
